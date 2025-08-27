@@ -1,28 +1,16 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
+      "id": "8ffc6870-3b0e-4106-8c45-b27dda4d5fd8",
+      "name": "333",
+      "description": "33",
       "element": "fire"
     },
     {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
+      "id": "c76803d2-6d4e-495d-8d4e-7179077d2c50",
+      "name": "123",
+      "description": "33",
       "element": "wind"
-    },
-    {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
-      "id": "b6e72411-4021-4910-9f6e-572a91be512a",
-      "name": "Igor",
-      "description": "3asd",
-      "element": "fire"
     }
   ],
   "filters": [

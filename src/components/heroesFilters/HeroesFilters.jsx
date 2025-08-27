@@ -13,14 +13,12 @@ const HeroesFilters = () => {
     const dispatch = useDispatch();
     const { request } = useHttp();
 
-    // Запрос на сервер для получения фильтров и последовательной смены состояния
     useEffect(() => {
         dispatch(filtersFetching());
         request("http://localhost:3001/filters")
             .then(data => dispatch(filtersFetched(data)))
             .catch(() => dispatch(filtersFetchingError()))
 
-        // eslint-disable-next-line
     }, []);
 
     if (filtersLoadingStatus === "loading") {

@@ -11,7 +11,15 @@ import './heroesList.scss';
 
 
 const HeroesList = () => {
-    const { filteredHeroes, heroesLoadingStatus } = useSelector(state => state);
+    const filteredHeroes = useSelector(state => {
+        if (state.activeFilter === 'all') {
+            return state.heroes;
+        } else {
+            return state.heroes.filter(item => item.element === state.activeFilter)
+        }
+    })
+
+    const heroesLoadingStatus = useSelector(state => state.heroesLoadingStatus);
     const dispatch = useDispatch();
     const { request } = useHttp();
 
@@ -24,6 +32,7 @@ const HeroesList = () => {
     }, []);
 
     const onDelete = useCallback((id) => {
+        console.log(111)
         request(`http://localhost:3001/heroes/${id}`, "DELETE")
             .then(data => console.log(data, 'Deleted'))
             .then(dispatch(heroDeleted(id)))
