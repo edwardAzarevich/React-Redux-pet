@@ -1,28 +1,40 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
+      "id": "8ffc6870-3b0e-4106-8c45-b27dda4d5fd8",
+      "name": "333",
+      "description": "33",
       "element": "fire"
     },
     {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
+      "id": "466d9df1-2b0f-4722-9392-4af416a84d1c",
+      "name": "brdadw",
+      "description": "dads",
+      "element": "fire"
+    },
+    {
+      "id": "46d32729-e3d7-4d3b-86ef-97552a089ae5",
+      "name": "Edward",
+      "description": "Play game",
+      "element": "earth"
+    },
+    {
+      "id": "2cd2c9f8-a752-4eb3-8142-8b10a1f37f02",
+      "name": "eds",
+      "description": "I like my suitcase",
+      "element": "fire"
+    },
+    {
+      "id": "671af5db-898b-4089-8ee7-ca2d142872d5",
+      "name": "Kirill",
+      "description": "wind my love",
       "element": "wind"
     },
     {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
-      "id": "b6e72411-4021-4910-9f6e-572a91be512a",
-      "name": "Igor",
-      "description": "3asd",
-      "element": "fire"
+      "id": "aca38ca6-812b-4333-ab88-5c5abe26e51d",
+      "name": "cd",
+      "description": "as",
+      "element": "earth"
     }
   ],
   "filters": [
