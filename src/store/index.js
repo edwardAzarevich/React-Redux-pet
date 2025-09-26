@@ -2,6 +2,14 @@ import { createStore, combineReducers, compose } from 'redux';
 import heroes from '../reducers/heroes';
 import filters from '../reducers/filters';
 
+const stringMiddleware = () => (dispatch) => (action) => {
+    if (typeof action === 'string') {
+        return dispatch({
+            type: action
+        })
+    }
+    return dispatch(action)
+};
 
 const enhancer = (createStore) => (...args) => {
     const store = createStore(...args);
