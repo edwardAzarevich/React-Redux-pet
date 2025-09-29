@@ -1,18 +1,6 @@
 {
   "heroes": [
     {
-      "id": "8ffc6870-3b0e-4106-8c45-b27dda4d5fd8",
-      "name": "333",
-      "description": "33",
-      "element": "fire"
-    },
-    {
-      "id": "466d9df1-2b0f-4722-9392-4af416a84d1c",
-      "name": "brdadw",
-      "description": "dads",
-      "element": "fire"
-    },
-    {
       "id": "46d32729-e3d7-4d3b-86ef-97552a089ae5",
       "name": "Edward",
       "description": "Play game",
@@ -29,12 +17,6 @@
       "name": "Kirill",
       "description": "wind my love",
       "element": "wind"
-    },
-    {
-      "id": "aca38ca6-812b-4333-ab88-5c5abe26e51d",
-      "name": "cd",
-      "description": "as",
-      "element": "earth"
     }
   ],
   "filters": [
