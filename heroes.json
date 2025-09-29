@@ -7,15 +7,15 @@
       "element": "earth"
     },
     {
-      "id": "2cd2c9f8-a752-4eb3-8142-8b10a1f37f02",
-      "name": "eds",
-      "description": "I like my suitcase",
-      "element": "fire"
-    },
-    {
       "id": "671af5db-898b-4089-8ee7-ca2d142872d5",
       "name": "Kirill",
       "description": "wind my love",
+      "element": "wind"
+    },
+    {
+      "id": "d8647c32-68bf-42ee-bf53-5926318d5896",
+      "name": "wid",
+      "description": "Wind storm",
       "element": "wind"
     }
   ],
