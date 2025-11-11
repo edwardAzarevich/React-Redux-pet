@@ -1,28 +1,16 @@
 {
   "heroes": [
     {
-      "id": "671af5db-898b-4089-8ee7-ca2d142872d5",
-      "name": "Kirill",
-      "description": "wind my love",
-      "element": "wind"
-    },
-    {
-      "id": "d8647c32-68bf-42ee-bf53-5926318d5896",
-      "name": "wid",
-      "description": "Wind storm",
-      "element": "wind"
-    },
-    {
-      "id": "d66450b2-6ecd-4566-85a3-360c2a631fe8",
-      "name": "ddd",
-      "description": "ad",
-      "element": "fire"
-    },
-    {
       "id": "dd4a1e57-5f90-4b64-8626-f217bf4c0b57",
       "name": "dd",
       "description": "123",
       "element": "wind"
+    },
+    {
+      "id": "964ce5c7-9926-4f45-a8bd-9266a69aa630",
+      "name": "в",
+      "description": "ddd",
+      "element": "fire"
     }
   ],
   "filters": [
