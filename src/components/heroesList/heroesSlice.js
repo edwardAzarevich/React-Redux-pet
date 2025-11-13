@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+    heroes: [],
+    heroesLoadingStatus: 'idle'
+}
+
 const heroesSlice = createSlice({
     name: 'heroes',
     initialState,
@@ -20,3 +25,13 @@ const heroesSlice = createSlice({
         }
     }
 });
+
+const { actions, reducer } = heroesSlice;
+
+export default reducer;
+export const {
+    heroCreated,
+    heroDeleted,
+    heroesFetched,
+    heroesFetching,
+    heroesFetchingError } = actions;

@@ -1,16 +1,16 @@
 {
   "heroes": [
     {
-      "id": "dd4a1e57-5f90-4b64-8626-f217bf4c0b57",
-      "name": "dd",
-      "description": "123",
-      "element": "wind"
+      "id": "8ff9cc77-a1eb-43b5-8920-d488dc13084a",
+      "name": "1",
+      "description": "2",
+      "element": "fire"
     },
     {
-      "id": "964ce5c7-9926-4f45-a8bd-9266a69aa630",
+      "id": "f27928e4-3874-497f-bd80-9565b1e1daf9",
       "name": "в",
-      "description": "ddd",
-      "element": "fire"
+      "description": "dd",
+      "element": "wind"
     }
   ],
   "filters": [
