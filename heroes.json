@@ -11,6 +11,12 @@
       "name": "в",
       "description": "dd",
       "element": "wind"
+    },
+    {
+      "id": "5ae8cf38-94bf-4450-8350-dff09f430f3f",
+      "name": "g",
+      "description": "g",
+      "element": "fire"
     }
   ],
   "filters": [
