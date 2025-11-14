@@ -8,11 +8,11 @@ const initialState = {
 
 export const fetchHeroes = createAsyncThunk(
     'heroes/fetchHeroes',
-    () => {
-        const request = useHttp();
-        return request("http://localhost:3001/heroes");
+    async () => {
+        const { request } = useHttp();
+        return await request("http://localhost:3001/heroes");
     }
-)
+);
 
 const heroesSlice = createSlice({
     name: 'heroes',
@@ -33,7 +33,7 @@ const heroesSlice = createSlice({
                 state.heroes = action.payload;
             })
             .addCase(fetchHeroes.rejected, state => {
-                state.heroesLoadingStatus = 'error'
+                state.heroesLoadingStatus = 'error';
             })
             .addDefaultCase(() => { })
     }
@@ -43,8 +43,9 @@ const { actions, reducer } = heroesSlice;
 
 export default reducer;
 export const {
-    heroCreated,
-    heroDeleted,
-    heroesFetched,
     heroesFetching,
-    heroesFetchingError } = actions;
+    heroesFetched,
+    heroesFetchingError,
+    heroCreated,
+    heroDeleted
+} = actions;
