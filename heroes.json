@@ -1,18 +1,6 @@
 {
   "heroes": [
     {
-      "id": "bc91ac49-1536-48ca-88ae-1d525d99c143",
-      "name": "Heroes 1",
-      "description": "My main skill is a speed",
-      "element": "fire"
-    },
-    {
-      "id": "9dee05f1-f763-41fc-a6c5-b1b0309ce922",
-      "name": "Heroes 2",
-      "description": "I like my suitcase",
-      "element": "water"
-    },
-    {
       "id": "28995dc2-f22b-462f-be3f-ca329ae57925",
       "name": "corn",
       "description": "it's corn",
