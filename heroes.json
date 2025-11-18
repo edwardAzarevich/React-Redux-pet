@@ -1,9 +1,15 @@
 {
   "heroes": [
     {
-      "id": "28995dc2-f22b-462f-be3f-ca329ae57925",
-      "name": "corn",
-      "description": "it's corn",
+      "id": "7ead55dd-c805-4d61-9c42-3619b86c8287",
+      "name": "Halo",
+      "description": "Halo",
+      "element": "earth"
+    },
+    {
+      "id": "a1b65085-8412-44b6-ba32-496a64d10baf",
+      "name": "Good game",
+      "description": "Good game",
       "element": "wind"
     }
   ],
