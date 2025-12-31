@@ -3,7 +3,7 @@ import { useEffect, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { heroDeleted, fetchHeroes, filteredHeroesSelector } from '../heroesList/heroesSlice';
+import { heroDeleted, fetchHeroes } from '../heroesList/heroesSlice';
 import { useGetHeroesQuery } from '../../api/apiSlice';
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
@@ -15,14 +15,12 @@ import './heroesList.scss';
 const HeroesList = () => {
     const {
         data: heroes = [],
-        isFetching,
         isLoading,
-        isSuccess,
         isError,
-        error
     } = useGetHeroesQuery();
 
-    const acriveFilter = useSelector(state => state.filters.acriveFilter);
+    const acriveFilter = useSelector(state => state.filters.activeFilter);
+
     const filteredHeroes = useMemo(() => {
         const filteredHeroes = heroes.slice();
 
@@ -31,10 +29,9 @@ const HeroesList = () => {
         } else {
             return filteredHeroes.filter(item => item.element === acriveFilter)
         }
-    }, [heroes]);
+    }, [heroes, acriveFilter]);
+    console.log(filteredHeroes);
 
-    // const filteredHeroes = useSelector(filteredHeroesSelector);
-    const heroesLoadingStatus = useSelector(state => state.heroes.heroesLoadingStatus);
     const dispatch = useDispatch();
     const { request } = useHttp();
 
@@ -78,7 +75,7 @@ const HeroesList = () => {
         })
     }
 
-    const elements = renderHeroesList(heroes);
+    const elements = renderHeroesList(filteredHeroes);
     return (
         <TransitionGroup component="ul">
             {elements}

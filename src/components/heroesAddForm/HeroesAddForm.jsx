@@ -6,11 +6,14 @@ import store from '../../store';
 
 import { heroCreated } from '../heroesList/heroesSlice';
 import { selectAll } from '../heroesFilters/filtersSlice';
+import { useCreateHeroMutation } from '../../api//apiSlice';
 
 const HeroesAddForm = () => {
     const [heroName, setHeroName] = useState('');
     const [heroDescr, setHeroDescr] = useState('');
     const [heroElement, setHeroElement] = useState('');
+
+    const [createHero, { isLoading }] = useCreateHeroMutation();
 
     const { filtersLoadingStatus } = useSelector(state => state.filters);
     const filters = selectAll(store.getState())
@@ -25,10 +28,9 @@ const HeroesAddForm = () => {
             description: heroDescr,
             element: heroElement
         }
-        request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-            .then(res => console.log(res, 'Отправка успешна'))
-            .then(dispatch(heroCreated(newHero)))
-            .catch(err => console.log(err));
+
+        createHero(newHero).unwrap();
+
         setHeroName('');
         setHeroDescr('');
         setHeroElement('');
