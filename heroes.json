@@ -1,46 +1,51 @@
 {
   "heroes": [
     {
-      "id": "bc91ac49-1536-48ca-88ae-1d525d99c143",
-      "name": "Heroes 1",
-      "description": "My main skill is a speed",
+      "id": 1,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
       "element": "fire"
     },
     {
-      "id": "9dee05f1-f763-41fc-a6c5-b1b0309ce922",
-      "name": "Heroes 2",
-      "description": "I like my suitcase",
-      "element": "water"
+      "id": 2,
+      "name": "Неизвестный герой",
+      "description": "Скрывающийся в тени",
+      "element": "wind"
     },
     {
-      "id": "28995dc2-f22b-462f-be3f-ca329ae57925",
-      "name": "corn",
-      "description": "it's corn",
-      "element": "wind"
+      "id": 3,
+      "name": "Морской герой",
+      "description": "Как аквамен, но не из DC",
+      "element": "water"
     }
   ],
   "filters": [
     {
+      "id": "all",
       "name": "all",
       "label": "Все",
       "className": "btn-outline-dark"
     },
     {
+      "id": "fire",
       "name": "fire",
       "label": "Огонь",
       "className": "btn-danger"
     },
     {
+      "id": "water",
       "name": "water",
       "label": "Вода",
       "className": "btn-primary"
     },
     {
+      "id": "wind",
       "name": "wind",
       "label": "Ветер",
       "className": "btn-success"
     },
     {
+      "id": "earth",
       "name": "earth",
       "label": "Земля",
       "className": "btn-secondary"

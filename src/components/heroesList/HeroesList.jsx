@@ -2,9 +2,8 @@ import { useHttp } from '../../hooks/http.hook';
 import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { createSelector } from '@reduxjs/toolkit';
 
-import { heroDeleted, fetchHeroes } from '../heroesList/heroesSlice';
+import { heroDeleted, fetchHeroes, filteredHeroesSelector } from '../heroesList/heroesSlice';
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
@@ -13,20 +12,6 @@ import './heroesList.scss';
 
 
 const HeroesList = () => {
-
-    const filteredHeroesSelector = createSelector(
-        (state) => state.filters.activeFilter,
-        (state) => state.heroes.heroes,
-        (filter, heroes) => {
-            if (filter === 'all') {
-                return heroes;
-            } else {
-                return heroes.filter(item => item.element === filter)
-            }
-        }
-    );
-
-
     const filteredHeroes = useSelector(filteredHeroesSelector);
     const heroesLoadingStatus = useSelector(state => state.heroes.heroesLoadingStatus);
     const dispatch = useDispatch();
@@ -40,7 +25,7 @@ const HeroesList = () => {
         request(`http://localhost:3001/heroes/${id}`, "DELETE")
             .then(data => console.log(data, 'Deleted'))
             .then(dispatch(heroDeleted(id)))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     }, [request]);
 
     if (heroesLoadingStatus === "loading") {
