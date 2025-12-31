@@ -10,4 +10,4 @@ export const apiSlice = createApi({
     })
 });
 
-export const { useGetGeroesQuery } = apiSlice;
+export const { useGetHeroesQuery } = apiSlice;

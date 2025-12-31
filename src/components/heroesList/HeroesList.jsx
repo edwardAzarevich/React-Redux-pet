@@ -1,9 +1,10 @@
 import { useHttp } from '../../hooks/http.hook';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { heroDeleted, fetchHeroes, filteredHeroesSelector } from '../heroesList/heroesSlice';
+import { useGetHeroesQuery } from '../../api/apiSlice';
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
@@ -12,7 +13,27 @@ import './heroesList.scss';
 
 
 const HeroesList = () => {
-    const filteredHeroes = useSelector(filteredHeroesSelector);
+    const {
+        data: heroes = [],
+        isFetching,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useGetHeroesQuery();
+
+    const acriveFilter = useSelector(state => state.filters.acriveFilter);
+    const filteredHeroes = useMemo(() => {
+        const filteredHeroes = heroes.slice();
+
+        if (acriveFilter === 'all') {
+            return filteredHeroes;
+        } else {
+            return filteredHeroes.filter(item => item.element === acriveFilter)
+        }
+    }, [heroes]);
+
+    // const filteredHeroes = useSelector(filteredHeroesSelector);
     const heroesLoadingStatus = useSelector(state => state.heroes.heroesLoadingStatus);
     const dispatch = useDispatch();
     const { request } = useHttp();
@@ -28,9 +49,9 @@ const HeroesList = () => {
             .catch(err => console.error(err));
     }, [request]);
 
-    if (heroesLoadingStatus === "loading") {
+    if (isLoading) {
         return <Spinner />;
-    } else if (heroesLoadingStatus === "error") {
+    } else if (isError) {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 
@@ -57,7 +78,7 @@ const HeroesList = () => {
         })
     }
 
-    const elements = renderHeroesList(filteredHeroes);
+    const elements = renderHeroesList(heroes);
     return (
         <TransitionGroup component="ul">
             {elements}
