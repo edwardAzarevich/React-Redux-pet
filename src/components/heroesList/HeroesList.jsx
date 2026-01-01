@@ -1,9 +1,7 @@
-import { useHttp } from '../../hooks/http.hook';
-import { useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-
-import { heroDeleted, fetchHeroes, filteredHeroesSelector } from '../heroesList/heroesSlice';
+import { useGetHeroesQuery, useDeleteHeroesMutation } from '../../api/apiSlice';
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
@@ -12,25 +10,33 @@ import './heroesList.scss';
 
 
 const HeroesList = () => {
-    const filteredHeroes = useSelector(filteredHeroesSelector);
-    const heroesLoadingStatus = useSelector(state => state.heroes.heroesLoadingStatus);
-    const dispatch = useDispatch();
-    const { request } = useHttp();
+    const {
+        data: heroes = [],
+        isLoading,
+        isError,
+    } = useGetHeroesQuery();
 
-    useEffect(() => {
-        dispatch(fetchHeroes());
-    }, []);
+    const [deleteHero] = useDeleteHeroesMutation();
+
+    const acriveFilter = useSelector(state => state.filters.activeFilter);
+
+    const filteredHeroes = useMemo(() => {
+        const filteredHeroes = heroes.slice();
+
+        if (acriveFilter === 'all') {
+            return filteredHeroes;
+        } else {
+            return filteredHeroes.filter(item => item.element === acriveFilter)
+        }
+    }, [heroes, acriveFilter]);
 
     const onDelete = useCallback((id) => {
-        request(`http://localhost:3001/heroes/${id}`, "DELETE")
-            .then(data => console.log(data, 'Deleted'))
-            .then(dispatch(heroDeleted(id)))
-            .catch(err => console.error(err));
-    }, [request]);
+        deleteHero(id);
+    }, []);
 
-    if (heroesLoadingStatus === "loading") {
+    if (isLoading) {
         return <Spinner />;
-    } else if (heroesLoadingStatus === "error") {
+    } else if (isError) {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 
